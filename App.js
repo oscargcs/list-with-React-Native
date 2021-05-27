@@ -22,7 +22,7 @@ import { TodoItem } from "./components/todoItem"
 export default function App() {
   const [todos, setTodos] = useState([
     { text: "make escudella", key: 1 },
-    { text: "apply to exciting jobs", key: 2 },
+    { text: "apply for exciting jobs", key: 2 },
     { text: "ride my bycicle", key: 3 },
   ])
 
