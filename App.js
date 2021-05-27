@@ -31,19 +31,12 @@ export default function App() {
   }
 
   const submitHandler = (text) => {
-    if (text.length > 3) {
+    if (text.length >= 3) {
       if (todos.some((todo) => todo.text === text)) {
         Alert.alert(
           "Invalid text",
           "This todo already exists, please type a different one",
-          [
-            {
-              text: "Cancel",
-              onPress: () => console.log("Cancel Pressed"),
-              style: "cancel",
-            },
-            { text: "OK", onPress: () => console.log("OK Pressed") },
-          ]
+          [{ text: "OK", onPress: () => console.log("OK Pressed") }]
         )
       } else {
         setTodos((prevTodos) => [
@@ -53,11 +46,6 @@ export default function App() {
       }
     } else {
       Alert.alert("Invalid text", "Write at least 3 characters", [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel",
-        },
         { text: "OK", onPress: () => console.log("OK Pressed") },
       ])
     }
