@@ -13,6 +13,7 @@ import {
   Keyboard,
 } from "react-native"
 import { AddTodo } from "./components/addTodo"
+import { CustomClock } from "./components/customClock"
 
 import { Header } from "./components/header"
 import { Sandbox } from "./components/sandbox"
@@ -20,9 +21,9 @@ import { TodoItem } from "./components/todoItem"
 
 export default function App() {
   const [todos, setTodos] = useState([
-    { text: "buy cofee", key: 1 },
-    { text: "create an app", key: 2 },
-    { text: "play on the switch", key: 3 },
+    { text: "make escudella", key: 1 },
+    { text: "apply to exciting jobs", key: 2 },
+    { text: "ride my bycicle", key: 3 },
   ])
 
   const pressHandler = (key) => {
@@ -31,10 +32,21 @@ export default function App() {
 
   const submitHandler = (text) => {
     if (text.length > 3) {
-      setTodos((prevTodos) => [
-        ...prevTodos,
-        { text: text, key: Math.random().toString() },
-      ])
+      if (todos.some((todo) => todo.text === text)) {
+        Alert.alert("Invalid text", "This todo already exists", [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel",
+          },
+          { text: "OK", onPress: () => console.log("OK Pressed") },
+        ])
+      } else {
+        setTodos((prevTodos) => [
+          ...prevTodos,
+          { text: text, key: Math.random().toString() },
+        ])
+      }
     } else {
       Alert.alert("Invalid text", "Write at least 3 characters", [
         {
@@ -65,6 +77,7 @@ export default function App() {
                 <TodoItem item={item} pressHandler={pressHandler} />
               )}
             />
+            <CustomClock />
           </View>
         </View>
       </View>

@@ -17,7 +17,7 @@ export const AddTodo = ({ submitHandler }) => {
       <Button
         onPress={() => submitHandler(text)}
         title="add todo"
-        color="coral"
+        color="blue"
       />
     </View>
   )
