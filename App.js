@@ -21,16 +21,16 @@ import { TodoItem } from "./components/todoItem"
 
 export default function App() {
   const [todos, setTodos] = useState([
-    { text: "make escudella", key: 1 },
-    { text: "apply for exciting jobs", key: 2 },
-    { text: "ride my bycicle", key: 3 },
+    { text: "make escudella", date: "12:30", key: 1 },
+    { text: "apply for exciting jobs", date: "8:30", key: 2 },
+    { text: "ride my bycicle", date: "18:00", key: 3 },
   ])
 
   const pressHandler = (key) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.key != key))
   }
 
-  const submitHandler = (text) => {
+  const submitHandler = (text, date) => {
     if (text.length >= 3) {
       if (todos.some((todo) => todo.text === text)) {
         Alert.alert(
@@ -41,7 +41,7 @@ export default function App() {
       } else {
         setTodos((prevTodos) => [
           ...prevTodos,
-          { text: text, key: Math.random().toString() },
+          { text: text, date: date, key: Math.random().toString() },
         ])
       }
     } else {

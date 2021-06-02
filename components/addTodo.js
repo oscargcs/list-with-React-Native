@@ -3,9 +3,13 @@ import { StyleSheet, Text, TextInput, View, Button } from "react-native"
 
 export const AddTodo = ({ submitHandler }) => {
   const [text, setText] = useState("")
+  const [date, setDate] = useState("")
 
   const changeHandler = (val) => {
     setText(val)
+  }
+  const changeDateHandler = (val) => {
+    setDate(val)
   }
   return (
     <View>
@@ -14,8 +18,13 @@ export const AddTodo = ({ submitHandler }) => {
         placeholder="e.g. cook lunch"
         onChangeText={changeHandler}
       />
+      <TextInput
+        style={styles.input}
+        placeholder="14:00"
+        onChangeText={changeDateHandler}
+      />
       <Button
-        onPress={() => submitHandler(text)}
+        onPress={() => submitHandler(text, date)}
         title="add todo"
         color="blue"
       />

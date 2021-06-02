@@ -9,6 +9,9 @@ export const TodoItem = ({ item, pressHandler }) => {
       <View style={styles.todo}>
         <MaterialIcons name="delete" size={18} color="#333" />
         <Text style={styles.text}>{item.text}</Text>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.date}>{item.date}</Text>
+        </View>
       </View>
     </TouchableOpacity>
   )
@@ -27,4 +30,5 @@ const styles = StyleSheet.create({
   text: {
     marginLeft: 10,
   },
+  date: { textAlign: "right" }, //és necessari posar això amb en combinació del flex:1 de dalt.
 })
