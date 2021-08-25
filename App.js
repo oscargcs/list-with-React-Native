@@ -2,12 +2,8 @@ import { StatusBar } from "expo-status-bar"
 import React, { useState } from "react"
 import {
   StyleSheet,
-  Text,
   View,
-  TextInput,
-  ScrollView,
   FlatList,
-  TouchableOpacity,
   Alert,
   TouchableWithoutFeedback,
   Keyboard,
@@ -16,7 +12,6 @@ import { AddTodo } from "./components/addTodo"
 import { CustomClock } from "./components/customClock"
 
 import { Header } from "./components/header"
-import { Sandbox } from "./components/sandbox"
 import { TodoItem } from "./components/todoItem"
 
 export default function App() {
